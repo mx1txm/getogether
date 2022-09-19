@@ -1,0 +1,71 @@
+/* CSS styles */
+
+body {
+font-family: "Manrope" , sans-serif;
+background: none;
+}
+.wrapper {
+
+  max-width:1600px;
+  margin: 0 auto;
+
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #059669;
+}
+.nav-items{
+  display: flex;
+}
+
+.nav-items li a{
+  margin: 0 20;
+  color: #DCF0DB;
+}
+
+ul{
+  list-style-type: none;
+}
+h3, h4, h5 {
+color: #107F3A;
+}
+
+.btn{
+  justify-content: center;
+  align-items: center;
+  background: #059669;
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 8px 20px;
+  color: white;
+}
+
+ul.b {
+  list-style-type: square;
+  padding: 50px 50px 50px 50px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin: 50px 10px 0px 50px;
+}
+.column {
+  width: 80%;
+}
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #059669;
+  padding: 30px;
+  color: white;
+}
+
+.caption{
+    display: block;
+    /* text-align:center; */
+}

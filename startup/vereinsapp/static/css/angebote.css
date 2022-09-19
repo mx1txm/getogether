@@ -1,0 +1,123 @@
+/* CSS styles */
+
+body {
+font-family: "Manrope" , sans-serif;
+background: none;
+
+margin-bottom:50px; /*für footer*/
+}
+.wrapper {
+
+  max-width:1600px;
+  margin: 0 auto;
+
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #059669;
+}
+.nav-items{
+  display: flex;
+  text-decoration: none;
+}
+
+.nav-items li a{
+  margin: 0 20;
+  color: #DCF0DB;
+}
+
+h3, h4, h5 {
+color: #107F3A;
+margin-top: 100px;
+padding: 0px 50px;
+}
+
+.btn{
+  justify-content: center;
+  align-items: center;
+  background: #059669;
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 8px 20px;
+  color: white;
+}
+
+ul.b {
+  list-style-type: square;
+  padding: 50px 50px 50px 50px;
+}
+
+.angebot{
+  margin-top: -20px;
+  height: 100px;
+  background: #c8e6c9;
+  padding: 50px 50px;
+  /*display: table-cell;*/
+  /*justify-content: space-between;*/
+  /*margin: 50px 100px 50px 100px;*/
+  border-radius: 20px;
+
+    width: 70%;
+	margin: 1em auto;
+	display:flex;
+}
+
+.column1{
+  display: block;
+  width: 70%;
+  margin-top: -20px;
+}
+
+.column2 {
+  display: block;
+  width: 130%;
+  margin-top: -20px;
+}
+
+.column2 p{
+
+    align-items: left;
+    text-align: left;
+    justify-content: center;
+}
+
+.filterbalken{
+  height: 5px;
+  background: #c8e6c9;
+  padding: 25px 25px;
+  display: flex;
+
+  margin: 50px 100px 50px 100px;
+  border-radius: 10px;
+  color:white;
+
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filteroption{
+  border: 2px solid;
+  border-radius: 12px;
+  padding: 10px;
+  background: #059669;
+  margin-left: 40px;
+}
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #059669;
+  padding: 30px;
+  color: white;
+  height: 50px;
+  width: 95%;
+
+  /*für footer*/
+  margin-bottom: 0px;
+  bottom: 0px;
+  /*position: fixed;*/
+}

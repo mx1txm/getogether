@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/css/anzeige_new.css' %}">
+  <title>HTML CSS JS</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="logo" style="color: #DCF0DB;margin-left:20px;">Logo</div>
+      <nav class="class">
+        <ul class="nav-items">
+          <li><a href="#">Sprache</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="top;">Veranstaltung planen</div>
+
+  <form>
+    <label for="fname">Titel</label><br>
+    <input type="text" id="fname" name="fname"><br>
+
+    <label for="lname">Beschreibung</label><br>
+    <input type="text" id="lname" name="lname">
+
+    <label>Wann</label><br>
+    <input type="text" id="lname" name="lname">
+
+    <label>Wo</label><br>
+    <input type="text" id="lname" name="lname">
+
+    <h3>Deine Zielgruppe</h3>
+
+    <input type="text" id="lname" name="lname" value="Alter">
+    <input type="text" id="lname" name="lname" value="Geschlecht">
+    <input type="text" id="lname" name="lname" value="Umkreis">
+
+    <h3>Interessen</h3>
+
+    <input type="text" id="lname" name="lname" value="Kunst">
+    <input type="text" id="lname" name="lname" value="Bildung">
+    <input type="text" id="lname" name="lname" value="Kultur">
+    <input type="text" id="lname" name="lname" value="Musik">
+    <input type="text" id="lname" name="lname" value="Umwelt">
+    <input type="text" id="lname" name="lname" value="Zusammenkommen">
+    <input type="text" id="lname" name="lname" value="Kiezgestaltung">
+    <input type="text" id="lname" name="lname" value="Tanzen">
+    <input type="text" id="lname" name="lname" value="Essen">
+
+    <h3>Besonderheiten</h3>
+    <input type="text" id="lname" name="lname" value="Flüchtling">
+    <input type="text" id="lname" name="lname" value="Migranten">
+    <input type="text" id="lname" name="lname" value="Körperliche Behinderung">
+    <input type="text" id="lname" name="lname" value="Geistige Behinderung">
+    <input type="text" id="lname" name="lname" value="Queer">
+
+    <h3>Interessen oder Besonderheiten die nicht aufgelistet sind:</h3>
+    <input type="text" id="lname" name="lname">
+
+    <h3>Bilder hochladen</h3>
+    <input type="file" id="myFile" name="filename">
+    <input type="submit">
+
+    <label>Mitgliederbeschränkung</label><br>
+    <input type="text" id="lname" name="lname" value="uneingeschränkt">
+
+    <h3>Wie viel möchtest du von deinem Budget für diese Veranstaltung werben?</h3>
+    <p>Du hast bereits 21% deines freies Budgets verbraucht. Wie viel möchtest du für diese Anzeige verwenden?</p>
+       <a style="background: #059669;" href="#" class=btn btn-primary>30%</a>
+       <a href="#" class=btn btn-primary>49% frei</a>
+
+    <br><br>
+    <a style="background: #059669;" href="#" class=btn btn-primary>Anzeige veröffentlichen</a>
+
+  </form>
+
+    <h4>Vereinsangebote suchen</h4>
+    <div class="suche">
+      <div class="suchfeld">
+        <div class="one">
+            <input type="text" placeholder="Suche">
+            <input type="text" placeholder="Ort">
+            <a href="#" class=btn btn-primary>Suchen</a>
+        </div>
+      </div>
+      <div class="kategorie">
+            <input type="choices" placeholder="Kategorie">
+            <div class="days">
+            <a href="#" class=btn btn-primary>Montag</a>
+            <a href="#" class=btn btn-primary>Dienstag</a>
+            <a href="#" class=btn btn-primary>Mittwoch</a>
+            <a href="#" class=btn btn-primary>Donnerstag</a>
+            <a href="#" class=btn btn-primary>Freitag</a>
+            <a href="#" class=btn btn-primary>Samstag</a>
+            <a href="#" class=btn btn-primary>Sonntag</a>
+            </div>
+      </div>
+    </div>
+
+
+    <footer>
+      <a>About</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>Support</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>FAQ</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>About</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+
+{% block content %}
+<form action="{% url 'deleteuser' %}" method ="POST">
+    {% csrf_token %}
+    <p>Are you sure to delete "{{ user.username }}"?</p>
+    <div class="form-group">
+        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+        <a class="btn btn-outline-secondary" href="{% url 'profile' %}">Cancel</a>
+    </div>
+</form>
+
+{% endblock content %}

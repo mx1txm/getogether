@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/css/landingpage.css' %}">
+  <title>HTML CSS JS</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="logo" style="color: #DCF0DB;margin-left:20px;">
+        Logo
+      </div>
+      <nav class="class">
+        <ul class="nav-items">
+
+          <li>
+            <a href="#">
+            Sprache
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            Login
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+
+    <div class="hero-container">
+      <div class="left">
+        <h2 id="welcome">Zentralisierung aller sozialen Angebote von Vereinen & Kommunikationsfläche zwischen Vereinen und NutzerInnen</h2>
+        <a href="#" style="margin-top: 130px; display:inline-block;" class=btn btn-primary>Registrieren</a>
+        <a href="#" style="margin-top: 130px; display:inline-block;" class=btn btn-primary>Anmelden</a>
+      </div>
+      <div class="right">
+        <img src="https://img.freepik.com/free-vector/banner-with-diverse-happy-people-group-standing-together-white_90220-141.jpg?w=1480&t=st=1661099362~exp=1661099962~hmac=ea4227c001acaedb43a4cf66b5a05e87baacf7cc39b7a6360d734b8d9b3e6d87" style="width:100%; margin-top: 60px; display: block;" >
+      </div>
+    </div>
+
+    <h4>Kostenlose Vereinsangebote entdecken</h4>
+    <div class="container2">
+        <div class="one">
+          <img src="https://img.freepik.com/free-vector/happy-senior-people-dancing-party_74855-5527.jpg?w=1800&t=st=1661103267~exp=1661103867~hmac=a2a4be5bd029e99ad90c57f2b01906272957276f76d634def09bcbaec1dadbd3" style="width:70%;">
+          <a class="caption">Alt trifft Jung</a>
+        </div>
+        <div class="two">
+          <img src="https://img.freepik.com/free-vector/young-teacher-with-joyful-kids_74855-6162.jpg?w=1800&t=st=1661103485~exp=1661104085~hmac=c6fccd48308f672110450feb82885c7abb19e2fcde8f2b6a8d43ead1f3dcdbd1" style="width:70%;">
+          <a class="caption">Angebote für Kinder</a>
+        </div>
+        <div class="three">
+          <img src="https://img.freepik.com/free-vector/team-business-people-putting-hands-up-together_74855-19906.jpg?w=1800&t=st=1661103611~exp=1661104211~hmac=4cf3ac794e33f19038d6d13cb0595cfa92d099e01cade89729632e48a461fa74" style="120%;">
+          <a class="caption">Gemeinsam</a>
+        </div>
+    </div>
+
+    <h4>Vereinsangebote suchen</h4>
+
+    <div class="suche">
+      <div class="suchfeld">
+        <div class="one">
+            <input type="text" placeholder="Suche">
+            <input type="text" placeholder="Ort">
+            <a href="#" class=btn btn-primary>Suchen</a>
+        </div>
+      </div>
+      <div class="kategorie">
+            <input type="choices" placeholder="Kategorie">
+            <div class="days">
+            <a href="#" class=btn btn-primary>Montag</a>
+            <a href="#" class=btn btn-primary>Dienstag</a>
+            <a href="#" class=btn btn-primary>Mittwoch</a>
+            <a href="#" class=btn btn-primary>Donnerstag</a>
+            <a href="#" class=btn btn-primary>Freitag</a>
+            <a href="#" class=btn btn-primary>Samstag</a>
+            <a href="#" class=btn btn-primary>Sonntag</a>
+            </div>
+      </div>
+    </div>
+
+    <h4 style="text-align:center">Wie es funktioniert</h4>
+    <div class="row" id="bilder">
+      <div class="column" style="background-color:#c8e6c9;">
+        <img class="img-fluid img-thumbnail" src="{% static '/images/suchen.png' %}" style="width: 50%" alt="">
+        <h5>Veranstaltung suchen</h5>
+      </div>
+      <div class="column" style="background-color:#a5d6a7;">
+        <img class="img-fluid img-thumbnail" src="{% static '/images/finden.png' %}" alt="">
+        <h5>Veranstaltung finden</h5>
+      </div>
+      <div class="column" style="background-color:#c8e6c9;">
+        <img class="img-fluid img-thumbnail" src="{% static '/images/teilnehmen.png' %}" alt="">
+        <h5>Veranstaltung teilnehmen</h5>
+      </div>
+      <a href="#" class=btn btn-primary>Jetzt registrieren</a>
+    </div>
+
+    <div class="numbers">
+      <h2>Get-Together in Zahlen</h2>
+      <h5>43.000 Vereine</h5>
+      <h5>186.000 Vereinsangebote</h5>
+      <h5>569.000 Registrierte Mitglieder</h5>
+    </div>
+
+
+  <h4 style="text-align:center">Preise</h4>
+
+    <div class="pricing">
+      <div class="column2">
+        <h5 style="text-align:center">Intro</h5>
+        <ul class="b">
+            <li>Erstelle ein Profil für dein Verein</li>
+            <li>Erstelle deine erste Anzeige für ein Vereinsangebot deiner Wahl</li>
+            <li>24/7 Support</li>
+        </ul>
+          <h4>Kostenlos</h4>
+        <a href="#" class=btn btn-primary>Kostenlos austesten</a>
+      </div>
+      <div class="column2">
+        <h5 style="text-align:center">Premium</h5>
+        <ul class="b">
+            <li>Erstelle ein Profil für dein Verein</li>
+            <li>Erstelle beliebig viele Vereinsagebote</li>
+            <li>Wir investieren 50% des Geldes in Facebook & Google Ads</li>
+            <li>Kommunikationskanal für Mitglieder</li>
+            <li>Spenden von Nutzern bekommen</li>
+            <li>24/7 Support</li>
+        </ul>
+          <h4>500€ / Monat</h4>
+        <a href="#" class=btn btn-primary>Auswählen</a>
+      </div>
+      <div class="column2">
+        <h5 style="text-align:center">Basic</h5>
+        <ul class="b">
+            <li>Erstelle ein Profil für dein Verein</li>
+            <li>Erstelle bis zu 10 Anzeigen für Vereinsagebote deiner Wahl</li>
+            <li>Wir investieren 50% des Geldes in Facebook & Google Ads </li>
+            <li>Kommunikationskanal für Mitglieder</li>
+            <li>24/7 Support</li>
+        </ul>
+          <h4>300€ / Monat</h4>
+        <a href="#" class=btn btn-primary>Auswählen</a>
+      </div>
+    </div>
+
+  <div class="aboutus">
+      <h2>Arbeiten Sie im Verein?</h2>
+      <p>Get-Together ist die Plattform für Ihr Vereinsmarketing</p>
+      <p>Entlasten Sie Ihr Team und bieten Sie Ihren Nutzern einen zeitgemäßen, digitalen Service an Erhöhen Sie die Sichtbarkeit Ihrer Einrichtung im Internet und steigern Sie die Teilnahmequote der Vereinsangeboten</p>
+      <a style="width: 80px;" href="#" class=btn btn-primary>Mehr erfahren</a>
+  </div>
+
+    <footer>
+      <a>About</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>Support</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>FAQ</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>About</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+    </footer>
+
+  </div>
+</body>
+</html>
