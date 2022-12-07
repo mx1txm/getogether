@@ -5,9 +5,8 @@ from .models import Profile
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
-    print("INSIDE CREATE_PROFILE")#negative
+
     if created:
-        print("INSIDE CREATED_PROFILE")#negative
         Profile.objects.create(user=instance)
 
 @receiver(post_save, sender=User)

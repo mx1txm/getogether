@@ -6,6 +6,132 @@
   <title>HTML CSS JS</title>
 </head>
 <body>
+
+{% block content %}
+
+<div>
+    <h3>Filter Product</h3>
+    <form method="GET">
+        {% csrf_token %}
+        {{ myFilter.form }}
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="title_contains" placeholder="Title contains...">
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">Category</label>
+                <select id="inputState" name="category" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="0">Fruits</option>
+                    <option value="1">Vegetables</option>
+                    <option value="2">Nuts</option>
+                    <option value="3">legumes</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputState">Product</label>
+                <select id="inputState2" name="product" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="0">apple</option>
+                    <option value="1">banana</option>
+                    <option value="2">orange</option>
+                    <option value="3">strawberry</option>
+                </select>
+            </div>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputEmail1">Price$</label>
+                <input type="number" class="form-control" id="price_min" placeholder="Price">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputEmail3">Menge</label>
+                <input type="number" class="form-control" id="amount_min" placeholder="Menge">
+            </div>
+        </div>
+
+        <!-- <div class="form-group" style="display: inline"> -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="publishDateMin">Publish date minimum</label>
+                <input type="date" class="form-control" id="publishDateMin" value="YYYY-MM-DD">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="publishDateMax">Publish date maximum</label>
+                <input type="date" class="form-control" id="publishDateMax" value="YYYY-MM-DD">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <div>
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    GMO Free
+                </label>
+                </div>
+                <div>
+                <input class="form-check-input" type="checkbox" id="gridCheck2">
+                <label class="form-check-label" for="gridCheck">
+                    Organic
+                </label>
+                </div>
+                <div>
+                <input class="form-check-input" type="checkbox" id="gridCheck3">
+                <label class="form-check-label" for="gridCheck">
+                    Fair trade
+                </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div>
+        <h2>{{ text }}</h2>
+        {% for post in myFilter.qs %}
+            <h1>{{ post.title }}</h1>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <ul>
+        {% for post in queryset %}
+            <h1>{{ post.title }}</h1>
+        {% endfor %}
+        </ul>
+    </div>
+
+<!-- BUTTON - GET REQUEST  -->
+    <form method="get">
+        {% csrf_token %}
+        {{ myFilter.form }}
+        <input type="text">
+        <button type="submit" name="button">Submit</button>
+    </form>
+    <h2>{{ text }}</h2>
+    {% for post in myFilter.qs %}
+        <h1>{{ post.post }}</h1>
+    {% endfor %}
+</div>
+<!-- /.container -->
+{% endblock content %}
+
+
+
   <div class="wrapper">
     <div class="header">
       <div class="logo" style="color: #DCF0DB;margin-left:20px;">Logo</div>

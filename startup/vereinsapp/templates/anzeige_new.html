@@ -17,6 +17,25 @@
       </nav>
     </div>
 
+    <div>
+      {% load crispy_forms_tags %}
+
+        {% block content %}
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="boder-bottom mb-4">Inserat erstellen</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Post</button>
+                </div>
+            </form>
+        </div>
+        {% endblock content %}
+    </div>
+
     <div class="top;">Veranstaltung planen</div>
 
   <form>
@@ -27,45 +46,45 @@
     <input type="text" id="lname" name="lname">
 
     <label>Wann</label><br>
-    <input type="text" id="lname" name="lname">
+    <input type="text" id="wann" name="lname">
 
     <label>Wo</label><br>
-    <input type="text" id="lname" name="lname">
+    <input type="text" id="wo" name="lname">
 
     <h3>Deine Zielgruppe</h3>
 
-    <input type="text" id="lname" name="lname" value="Alter">
-    <input type="text" id="lname" name="lname" value="Geschlecht">
-    <input type="text" id="lname" name="lname" value="Umkreis">
+    <input type="text" id="alter" name="lname" value="Alter">
+    <input type="text" id="sex" name="lname" value="Geschlecht">
+    <input type="text" id="umkreis" name="lname" value="Umkreis">
 
     <h3>Interessen</h3>
 
-    <input type="text" id="lname" name="lname" value="Kunst">
-    <input type="text" id="lname" name="lname" value="Bildung">
-    <input type="text" id="lname" name="lname" value="Kultur">
-    <input type="text" id="lname" name="lname" value="Musik">
-    <input type="text" id="lname" name="lname" value="Umwelt">
-    <input type="text" id="lname" name="lname" value="Zusammenkommen">
-    <input type="text" id="lname" name="lname" value="Kiezgestaltung">
-    <input type="text" id="lname" name="lname" value="Tanzen">
-    <input type="text" id="lname" name="lname" value="Essen">
+    <input type="text" id="kunst" name="lname" value="Kunst">
+    <input type="text" id="bildung" name="lname" value="Bildung">
+    <input type="text" id="kultur" name="lname" value="Kultur">
+    <input type="text" id="musik" name="lname" value="Musik">
+    <input type="text" id="umwelt" name="lname" value="Umwelt">
+    <input type="text" id="zusammenkommen" name="lname" value="Zusammenkommen">
+    <input type="text" id="kiez" name="lname" value="Kiezgestaltung">
+    <input type="text" id="tanzen" name="lname" value="Tanzen">
+    <input type="text" id="essen" name="lname" value="Essen">
 
     <h3>Besonderheiten</h3>
-    <input type="text" id="lname" name="lname" value="Flüchtling">
-    <input type="text" id="lname" name="lname" value="Migranten">
-    <input type="text" id="lname" name="lname" value="Körperliche Behinderung">
-    <input type="text" id="lname" name="lname" value="Geistige Behinderung">
-    <input type="text" id="lname" name="lname" value="Queer">
+    <input type="text" id="fluechtling" name="lname" value="Flüchtling">
+    <input type="text" id="migranten" name="lname" value="Migranten">
+    <input type="text" id="behinderungK" name="lname" value="Körperliche Behinderung">
+    <input type="text" id="behinderungG" name="lname" value="Geistige Behinderung">
+    <input type="text" id="queer" name="lname" value="Queer">
 
     <h3>Interessen oder Besonderheiten die nicht aufgelistet sind:</h3>
-    <input type="text" id="lname" name="lname">
+    <input type="text" id="sonstiges" name="lname">
 
     <h3>Bilder hochladen</h3>
     <input type="file" id="myFile" name="filename">
     <input type="submit">
 
     <label>Mitgliederbeschränkung</label><br>
-    <input type="text" id="lname" name="lname" value="uneingeschränkt">
+    <input type="text" id="mitgliedermax" name="lname" value="uneingeschränkt">
 
     <h3>Wie viel möchtest du von deinem Budget für diese Veranstaltung werben?</h3>
     <p>Du hast bereits 21% deines freies Budgets verbraucht. Wie viel möchtest du für diese Anzeige verwenden?</p>

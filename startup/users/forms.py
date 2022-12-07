@@ -15,7 +15,7 @@ class UserProfileForm(forms.ModelForm):
         model = Profile
         fields = ['image']
 
-#Update
+    #Update
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
 
@@ -24,16 +24,18 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 class ProfileUpdateForm(forms.ModelForm):
-    print("INSIDE ProfileUpdateForm")
+
     class Meta:
         model = Profile
         fields = ['image']
 
-#Delete
+
+    #Delete
 class ProfileDeleteForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
 
 class UserDeleteForm(forms.ModelForm):
     class Meta:

@@ -4,24 +4,28 @@ from django.contrib import messages
 from .forms import UserRegisterForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm, ProfileDeleteForm, UserDeleteForm
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
-        pform = UserProfileForm(request.POST)
-        if form.is_valid() and pform. is_valid():
+        p_form = UserProfileForm(request.POST)
+        if form.is_valid() and p_form. is_valid():
             user = form.save()
-            profile = pform.save(commit=False)
+            profile = p_form.save(commit=False)
             profile.user = user
             profile.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Your account has been created! You are now able to login')
             return redirect('login')
     else:
-        context = {
-            'form': UserRegisterForm,
-            'p_form': UserProfileForm
-        }
+            form = UserRegisterForm()
+            p_form = UserProfileForm()
+
+    context = {
+        'form': form,
+        'p_form': p_form
+    }
     return render(request, 'users/register.html', context)
 
 def list_all(request):
@@ -43,16 +47,15 @@ def profile(request):
             return redirect('profile')
 
     elif request.method == 'DELETE':
-        print('delete works')
-        return redirect('digitalFarm-home')
+        return redirect('startup-home')
 
-    else :
+    else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
-        'u_form' : u_form,
-        'p_form' : p_form
+        'u_form': u_form,
+        'p_form': p_form
     }
     return render(request, 'users/profile.html', context)
 
@@ -64,14 +67,13 @@ def deleteuser(request):
         user = request.user
         user.delete()
         messages.info(request, 'Your account has been deleted.')
-        return redirect('digitalFarm-home')
+        return redirect('startup-home')
     else:
         delete_form = UserDeleteForm(instance=request.user)
 
     context = {
         'delete_form': delete_form
     }
-
     return render(request, 'users/profile.html', context)
 
 def profile_confirm_delete(request):
