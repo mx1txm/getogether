@@ -19,11 +19,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from users import views as user_views
+#from .views import PostListView
+#from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('vereinsapp/', include('vereinsapp.urls')),
+    path('home/', include('vereinsapp.urls')),
     path('', include('vereinsapp.urls')),
+
+    #path('', PostListView.as_view(), name='blog-home'),
+    #path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    #path('post/new/', PostCreateView.as_view(), name='post-create'),
+
     #Users
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),

@@ -6,139 +6,15 @@
   <title>HTML CSS JS</title>
 </head>
 <body>
-
-{% block content %}
-
-<div>
-    <h3>Filter Product</h3>
-    <form method="GET">
-        {% csrf_token %}
-        {{ myFilter.form }}
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <div class="input-group">
-                    <input class="form-control py-2 border-right-0 border" type="search" name="title_contains" placeholder="Title contains...">
-                    <span class="input-group-append">
-                        <div class="input-group-text bg-transparent">
-                            <i class="fa fa-search"></i>
-                        </div>
-                    </span>
-                </div>
-            </div>
-            <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputState">Category</label>
-                <select id="inputState" name="category" class="form-control">
-                    <option selected>Choose...</option>
-                    <option value="0">Fruits</option>
-                    <option value="1">Vegetables</option>
-                    <option value="2">Nuts</option>
-                    <option value="3">legumes</option>
-                </select>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputState">Product</label>
-                <select id="inputState2" name="product" class="form-control">
-                    <option selected>Choose...</option>
-                    <option value="0">apple</option>
-                    <option value="1">banana</option>
-                    <option value="2">orange</option>
-                    <option value="3">strawberry</option>
-                </select>
-            </div>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputEmail1">Price$</label>
-                <input type="number" class="form-control" id="price_min" placeholder="Price">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputEmail3">Menge</label>
-                <input type="number" class="form-control" id="amount_min" placeholder="Menge">
-            </div>
-        </div>
-
-        <!-- <div class="form-group" style="display: inline"> -->
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="publishDateMin">Publish date minimum</label>
-                <input type="date" class="form-control" id="publishDateMin" value="YYYY-MM-DD">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="publishDateMax">Publish date maximum</label>
-                <input type="date" class="form-control" id="publishDateMax" value="YYYY-MM-DD">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <div>
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    GMO Free
-                </label>
-                </div>
-                <div>
-                <input class="form-check-input" type="checkbox" id="gridCheck2">
-                <label class="form-check-label" for="gridCheck">
-                    Organic
-                </label>
-                </div>
-                <div>
-                <input class="form-check-input" type="checkbox" id="gridCheck3">
-                <label class="form-check-label" for="gridCheck">
-                    Fair trade
-                </label>
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-
-    <div>
-        <h2>{{ text }}</h2>
-        {% for post in myFilter.qs %}
-            <h1>{{ post.title }}</h1>
-        {% endfor %}
-    </div>
-    <div class="row">
-        <ul>
-        {% for post in queryset %}
-            <h1>{{ post.title }}</h1>
-        {% endfor %}
-        </ul>
-    </div>
-
-<!-- BUTTON - GET REQUEST  -->
-    <form method="get">
-        {% csrf_token %}
-        {{ myFilter.form }}
-        <input type="text">
-        <button type="submit" name="button">Submit</button>
-    </form>
-    <h2>{{ text }}</h2>
-    {% for post in myFilter.qs %}
-        <h1>{{ post.post }}</h1>
-    {% endfor %}
-</div>
-<!-- /.container -->
-{% endblock content %}
-
-
-
   <div class="wrapper">
     <div class="header">
-      <div class="logo" style="color: #DCF0DB;margin-left:20px;">Logo</div>
+      <div class="logo">
+        <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+      </div>
       <nav class="class">
-        <ul class="nav-items">
-          <li><a href="#">Sprache</a></li>
-          <li><a href="#">Login</a></li>
+        <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden" class="nav-items">
+          <li style="float: left;"><a style="display: block;padding: 8px;" href="#">Sprache</a></li>
+          <li style="float: left;"><a style="display: block;padding: 8px;" href="#">Login</a></li>
         </ul>
       </nav>
     </div>
@@ -148,6 +24,16 @@
         <p class="filteroption">Zeitraum</p>
         <p class="filteroption">Distanz</p>
         <p class="filteroption">Sortieren nach</p>
+        <label for="publishDateMin">frühstens</label>
+        <input type="date" class="form-control" value="YYYY-MM-DD">
+        <label for="publishDateMax">spätestens</label>
+        <input type="date" class="form-control" value="YYYY-MM-DD">
+
+        <form method="get">
+        {% csrf_token %}
+        {{ myFilter.form }}
+        <button type="submit" name="button">Submit</button>
+        </form>
     </div>
 
     <div class="angebot">
@@ -185,6 +71,37 @@
             <p>Das Projekt voll WERTvoll organisiert Aktionen rund um Nachhaltigkeit und Sauberkeit für diverse Zielgruppen im Kiez. </p>
         </div>
     </div>
+
+    {% block content %}
+    {% for post in posts %}
+      <p>Inside for loop</p>
+      <a class="mr-2" href="#">{{ post }}</a>
+      <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ post.author }}</a>
+            <small class="text-muted">{{ post.weekday }}</small>
+          </div>
+          <h2><a class="article-title">{{ post.title }}</a></h2>
+          <p class="article-content">{{ post.category }}</p>
+        </div>
+      </article>
+    {% endfor %}
+    {% endblock content %}
+
+    <div class="main">
+        {% for data in dataset %}.
+        {{ data.title }}<br/>
+        {{ data.description }}<br/>
+        <hr/>
+        {% endfor %}
+    </div>
+
+    <h2>{{ text }}</h2>
+    {% for post in myFilter.qs %}
+    <h1>{{ post.post }}</h1>
+    {% endfor %}
 
     <footer>
       <a>About</a>
