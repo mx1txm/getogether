@@ -27,10 +27,10 @@ class Category(models.Model):
 # Post
 class Post(models.Model):
     title = models.CharField(max_length=100)
+    beschreibung = models.CharField(max_length=100, default='')
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    post = models.CharField(max_length=100, default='SOME STRING')
-    print("Post Model")
+    titelbild = models.ImageField(upload_to='../media/', default='/media/gemeinsam.png') #upload_to=''
 
     category_choices = (
         ('Kunst', 'Kunst'),
@@ -53,6 +53,21 @@ class Post(models.Model):
         ('Köln', 'Köln'),
     )
 
+    berlin_bezirk = (
+        ('Mitte', 'Mitte'),
+        ('Friedrichshain', 'Friedrichshain'),
+        ('Pankow', 'Pankow'),
+        ('Charlottenburg', 'Charlottenburg'),
+        ('Kreuzberg', 'Kreuzberg'),
+        ('Spandau', 'Spandau'),
+        ('Steglitz', 'Steglitz'),
+        ('Schöneberg', 'Schöneberg'),
+        ('Neukölln', 'Neukölln'),
+        ('Köpenick', 'Köpenick'),
+        ('Lichtenberg', 'Lichtenberg'),
+        ('Marzahn', 'Marzahn'),
+    )
+
     weekday_choices = (
         ('Monday', 'Monday'),
         ('Tuesday', 'Tuesday'),
@@ -66,6 +81,7 @@ class Post(models.Model):
     category = models.CharField(max_length=15, choices=category_choices, default=0)
     city = models.CharField(max_length=15, choices=city_choices, default=0)
     weekday = models.CharField(max_length=15, choices=weekday_choices, default=0)
+    bezirk = models.CharField(max_length=15, choices=berlin_bezirk, default=0)
 
     def __str__(self):
         return self.title

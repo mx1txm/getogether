@@ -26,6 +26,21 @@ background: none;
   text-decoration: none;
 }
 
+a.nav-item.nav-link {
+    border: 1px solid black; /* adds a 1px solid black border */
+}
+
+.nav-item nav-link{
+  justify-content: center;
+  align-items: center;
+  background: #059669;
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 8px 20px;
+  color: white;
+  text-decoration: none;
+}
+
 ul{
   list-style-type: none;
 }
@@ -140,7 +155,6 @@ img {
   text-decoration: none;
 }
 
-
 #bilder img{
   display: block;
   margin: auto;
@@ -201,4 +215,16 @@ footer{
   background: #059669;
   padding: 30px;
   color: white;
+  height: 50px;
+  width: 95%;
+    /*makes the footer fixed to the bottom*/
+  bottom: 0;
+  left:0;
+  margin-bottom: 0px;
+}
+
+.container{
+  display: flex; /* makes the elements display in a row */
+  justify-content: center; /* centers the elements horizontally */
+  align-items: center; /* centers the elements vertically */
 }

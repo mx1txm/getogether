@@ -19,24 +19,60 @@
       </nav>
     </div>
     {% block content %}
-      <article class="media content-section">
-        <img class="rounded-circle article-img" src="{{ object.author.profile.image.url">
-        <div class="media-body">
-          <div class="article-metadata">
-            <a class="mr-2" href="#">{{ object.author }}</a>
-            <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-            {% if object.author == user %}
+
+    <div class="container-fluid">
+       <div class="roww" style="background-color:#aaa; width:100%; margin-bottom:10px;">
+           <h2 class="article-title">Veranstaltung</h2>
+           <h2 class="article-title">{{ object.title }}</h2>
+       </div>
+
+       <div class="roww">
+          <div class="column" style="background-color:#aaa;">
+              <img style="width: 90%; margin-left:30px; margin-top:20px;" src="{{ object.titelbild }}">
+              <p class="article-content">{{ object.weekday }}, {{ object.city }} ({{ object.bezirk }})</p>
+          </div>
+          <div class="column" style="background-color:#bbb;margin-left:20%;margin-top:100px;">
+              <p class="article-content">{{ object.beschreibung }}</p>
+              {% if object.author == user %}
               <div>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
                 <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
               </div>
-            {% endif %}
+              {% endif %}
+              {% endblock content %}
           </div>
-          <h2 class="article-title">{{ object.title }}</h2>
-          <p class="article-content">{{ object.content }}</p>
+          </div>
+       </div>
+    </div>
+
+
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <div class="row" style="background-color:#aaa;">
+                <div class="col-12">
+                    <!-- Content for first row in left column -->
+                </div>
+            </div>
+            <div class="row" style="background-color:#bbb;">
+                <div class="col-12">
+                    <!-- Content for second row in left column -->
+                </div>
+            </div>
+            <div class="row" style="background-color:#aaa;">
+                <div class="col-12">
+                    <!-- Content for third row in left column -->
+                </div>
+            </div>
         </div>
-      </article>
-    {% endblock content %}
+        <div class="col-6">
+            <!-- Content for right column -->
+        </div>
+    </div>
+  </div>
 
     <footer>
       <a>About</a>

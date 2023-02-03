@@ -19,89 +19,127 @@
       </nav>
     </div>
 
-    <div class="filterbalken">
-        <p class="filteroption">Kategorie</p>
-        <p class="filteroption">Zeitraum</p>
-        <p class="filteroption">Distanz</p>
-        <p class="filteroption">Sortieren nach</p>
-        <label for="publishDateMin">frühstens</label>
-        <input type="date" class="form-control" value="YYYY-MM-DD">
-        <label for="publishDateMax">spätestens</label>
-        <input type="date" class="form-control" value="YYYY-MM-DD">
+   <h3>Filtern</h3>
+    <form method="GET">
+        {% csrf_token %}
+        {{ ListingFilter.form }}
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="title_contains" placeholder="Title contains..." value="{{ request.GET.title_contains }}">
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputCity">Stadt</label>
+                <select id="inputCity" name="city" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="0">{{ Posts.weekday }}</option>
+                    <option value="1">Bielefeld</option>
+                    <option value="2">Nuts</option>
+                    <option value="3">legumes</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">Kategorie</label>
+                <select id="inputState" name="category" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="0">Kunst</option>
+                    <option value="1">Vegetables</option>
+                    <option value="2">Nuts</option>
+                    <option value="3">legumes</option>
+                </select>
+            </div>
+            </div>
+        </div>
 
-        <form method="get">
+        <!-- <div class="form-group" style="display: inline"> -->
+        <div class="form-row">
+
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <div>
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Barrierefrei
+                </label>
+                </div>
+                <div>
+                <input class="form-check-input" type="checkbox" id="gridCheck2">
+                <label class="form-check-label" for="gridCheck">
+                    Körperlich eingeschränkt
+                </label>
+                </div>
+                <div>
+                <input class="form-check-input" type="checkbox" id="gridCheck3">
+                <label class="form-check-label" for="gridCheck">
+                    LGBT
+                </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" value="Filter" class="btn btn-primary">Search</button>
+    <p>{{ listing_filter }}</p>
+    {% for post in filtered.qs %}
+        <h1>{{ post.post }}</h1>
+    {% endfor %}
+    </form>
+
+
+    <form method="get">
+      {{ FilterForm.form }}
+      <input type="submit" value="Filter">
+    </form>
+
+    {% for listing in listing_filter.qs %}
+    <h1>{{ listing }}</h1>
+    {% endfor %}
+
+    <form method="get">
+      {% csrf_token %}
+      {{ ListingFilter.form }}
+      <input type="submit" value="Filter">
+      {% for post in filtered.qs %}
+        <h1>{{ post.post }}</h1>
+      {% endfor %}
+    </form>
+
+
+    <form method="get">
         {% csrf_token %}
         {{ myFilter.form }}
         <button type="submit" name="button">Submit</button>
-        </form>
-    </div>
-
-    <div class="angebot">
-        <div class="column1">
-            <img src="https://img.freepik.com/free-vector/happy-senior-people-dancing-party_74855-5527.jpg?w=1800&t=st=1661103267~exp=1661103867~hmac=a2a4be5bd029e99ad90c57f2b01906272957276f76d634def09bcbaec1dadbd3" style="width:60%;">
-            <p>Morgen, 08/07/2022 - Berlin</p>
-        </div>
-         <div class="column2">
-            <p>Getti & Gerda</p>
-            <p>Wassertor e.V.</p>
-            <p>Kreuzberger Omas on Tour: Mit dem Projekt Gitti & Gerda geben wir Älteren durch Ausflüge, Tanzvergnügen und Spaziergänge ein Stück Lebensqualität.</p>
-        </div>
-    </div>
-
-    <div class="angebot">
-        <div class="column1">
-            <img src="https://img.freepik.com/free-vector/young-teacher-with-joyful-kids_74855-6162.jpg?w=1800&t=st=1661103485~exp=1661104085~hmac=c6fccd48308f672110450feb82885c7abb19e2fcde8f2b6a8d43ead1f3dcdbd1" style="width:60%;">
-            <p>Morgen, 08/07/2022 - Berlin</p>
-        </div>
-         <div class="column2">
-            <p>Lebensmittelausgabe</p>
-            <p>Wassertor e.V.</p>
-            <p>Wir helfen bedürftigen Menschen in unserer Nachbarschaft direkt bei der Sicherung elementarer Lebensmittel.</p>
-        </div>
-    </div>
-
-    <div class="angebot">
-        <div class="column1">
-        <img src="https://img.freepik.com/free-vector/young-teacher-with-joyful-kids_74855-6162.jpg?w=1800&t=st=1661103485~exp=1661104085~hmac=c6fccd48308f672110450feb82885c7abb19e2fcde8f2b6a8d43ead1f3dcdbd1" style="width:60%;">
-        <p>Morgen, 08/07/2022 - Berlin</p>
-        </div>
-         <div class="column2">
-            <p>voll WertVOLL</p>
-            <p>Wassertor e.V.</p>
-            <p>Das Projekt voll WERTvoll organisiert Aktionen rund um Nachhaltigkeit und Sauberkeit für diverse Zielgruppen im Kiez. </p>
-        </div>
-    </div>
-
-    {% block content %}
-    {% for post in posts %}
-      <p>Inside for loop</p>
-      <a class="mr-2" href="#">{{ post }}</a>
-      <article class="media content-section">
-        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url">
-        <div class="media-body">
-          <div class="article-metadata">
-            <a class="mr-2" href="#">{{ post.author }}</a>
-            <small class="text-muted">{{ post.weekday }}</small>
-          </div>
-          <h2><a class="article-title">{{ post.title }}</a></h2>
-          <p class="article-content">{{ post.category }}</p>
-        </div>
-      </article>
-    {% endfor %}
-    {% endblock content %}
-
-    <div class="main">
-        {% for data in dataset %}.
-        {{ data.title }}<br/>
-        {{ data.description }}<br/>
-        <hr/>
-        {% endfor %}
-    </div>
-
+    </form>
     <h2>{{ text }}</h2>
     {% for post in myFilter.qs %}
     <h1>{{ post.post }}</h1>
     {% endfor %}
+
+
+    {% block content %}
+    {% for post in posts %}
+      <div class="angebot">
+          <div class="column1">
+            <img src="{{ post.titelbild }}" width="200px"></p>
+            <small class="text-muted">{{ post.weekday }}</small>
+            <small>,</small>
+            <small class="text-muted">{{ post.bezirk }}</small>
+          </div>
+          <div class="column2">
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <h6 style="margin-top: -20px;">{{ post.author }}</h6>
+            <small class="text-muted">{{ post.beschreibung }}</small>
+          </div>
+      </div>
+    {% endfor %}
+    {% endblock content %}
+  </div>
 
     <footer>
       <a>About</a>
@@ -129,7 +167,5 @@
             <li>F&Q's</li>
         </ul>
     </footer>
-
-  </div>
 </body>
 </html>

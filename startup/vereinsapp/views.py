@@ -3,8 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.contrib.auth.models import User
 from .models import Post
-from .forms import FilterForm, PostForm, AnzeigeForm
-from .filters import ProductFilter
+from .forms import FilterForm, PostForm
+from .filters import ListingFilter
 
 
 def index(request):  # home
@@ -12,15 +12,62 @@ def index(request):  # home
 
 
 def angebote(request):
+    posts = Post.objects.all()
+    listing_filter = ListingFilter(request.GET, queryset=posts)
     context = {
-        'posts': Post.objects.all
+        'posts': posts,
+        'listing_filter': listing_filter
     }
+
     return render(request, 'angebote.html', context)
 
 
-def angebotsprofil(request):
-    return render(request, 'angebotsprofil.html', {})
+def is_valid_queryparam(param):
+    return param != '' and param is not None
 
+
+def filter_list(request):#BootstrapFilterView(request)
+    qs = Post.objects.all()
+    categories = Post.category
+    city = Post.city_choices
+    bezirk = Post.berlin_bezirk
+    weekday = Post.weekday_choices
+
+    title_contains_query = request.GET.get('title_contains')
+    categories_query = request.GET.get('category')
+    city_query = request.GET.get('city')
+    bezirk_query = request.GET.get('berlin_bezirk')
+    weekday_query = request.GET.get('weekday')
+
+    #Title
+    if title_contains_query != '' and title_contains_query is not None:
+        qs = qs.filter(title__icontains=title_contains_query)
+
+    #category
+    if is_valid_queryparam(categories_query) and categories_query != 'Choose...':
+        qs = qs.filter(category__iexact=categories_query)
+
+    #city
+    if is_valid_queryparam(city_query) and city_query != 'Choose...':
+        qs = qs.filter(city__iexact=city_query)
+
+    #bezirk
+    if is_valid_queryparam(bezirk_query) and bezirk_query != 'Choose...':
+        qs = qs.filter(bezirk__iexact=bezirk_query)
+
+    #weekday
+    if is_valid_queryparam(bezirk_query) and bezirk_query != 'Choose...':
+        qs = qs.filter(bezirk__iexact=bezirk_query)
+
+    context = {
+        'queryset': qs,
+        'weekday': weekday,
+        'category': categories,
+        'bezirk': bezirk,
+        'city': city,
+    }
+
+    return render(request, 'filtered_list.html', context)
 
 def nutzerprofil(request):
     return render(request, 'nutzerprofil.html', {})
@@ -31,7 +78,6 @@ def vereinsmarketing(request):
 
 
 def anzeige_new(request):
-    #form = PostForm()
 
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -41,43 +87,10 @@ def anzeige_new(request):
         form = PostForm()
     return render(request, 'anzeige_new.html', {'form': form})
 
-#new
-def create_view(request):
-    # dictionary for initial data with
-    # field names as keys
-    context = {}
-
-    # add the dictionary during initialization
-    form = AnzeigeForm(request.POST)
-    if form.is_valid():
-        form.save()
-
-    context['form'] = form
-    return render(request, 'anzeige_new.html', context)
-
-
-def list_view(request):
-    # dictionary for initial data with
-    # field names as keys
-    context = {}
-
-    # add the dictionary during initialization
-    context["dataset"] = AnzeigeForm.objects.all()
-
-    return render(request, 'angebote.html', context)
-
-#new end
-
-def items(request):
-    items = Post.objects.get(pk=request.GET.get('value'))
-    # return render(request, 'filter_list.html', {'item': items})
-    return render(request, 'angebotsprofil.html', {'item': items})
-
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'category', 'weekday']
-    print("Inside PostCreateView")
+    fields = ['title', 'beschreibung', 'category', 'bezirk', 'city', 'weekday', 'titelbild']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -97,14 +110,19 @@ class PostListView(ListView):
         return render(self.template_name, qs)
 
 
-
 class PostDetailView(DetailView):
     model = Post
+    template_name = 'post_detail.html'
+
+    def postdetail(request):
+        posts = Post.objects.get(pk=request.GET.get('value'))
+        # return render(request, 'filter_list.html', {'item': items})
+        return render(request, 'post/<int:pk>/', {'item': posts})
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'category', 'weekday']
+    fields = ['title', 'beschreibung', 'category', 'bezirk', 'city', 'weekday', 'titelbild']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -135,19 +153,17 @@ class FilterView(TemplateView):
         form = FilterForm(request.GET)
         form.save()
         posts = Post.objects.all()
-        title_contains = request.GET.get('title_contains')
-        myFilter = ProductFilter(request.GET, queryset=posts)
-        posts = myFilter.qs
+        #title_contains = request.GET.get('title_contains')
+        filtered = ListingFilter(request.GET, queryset=posts)
+        filtered_posts = filtered.qs
 
-        return render(request, self.template_name, posts)
+        return render(request, self.template_name, filtered_posts)
 
 
 class CreateView(TemplateView):
     template_name = 'vereinsapp/anzeige_new.html'
-    print("Inside Create View")
 
     def post(self, request):
-        print("Inside def post")
         form = PostForm(request.POST)
         if form.is_valid():
             text = form.cleaned_data['post']

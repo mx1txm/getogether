@@ -113,4 +113,67 @@ footer{
   background: #059669;
   padding: 30px;
   color: white;
+    /*makes the footer fixed to the bottom*/
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
 }
+
+/*Form*/
+    .form-style {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .form-control {
+        border-radius: 10px;
+    }
+    .btn-outline-info {
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    legend {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+/*new try*/
+.content-section {
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+form {
+  background-color: #f9f9f9;
+}
+
+label {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  color: #C18D80;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  font-size: 16px;
+  color: #C18D80;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  border: none;
+}
+

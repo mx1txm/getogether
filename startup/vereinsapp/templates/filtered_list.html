@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/css/angebote.css' %}">
+  <title>HTML CSS JS</title>
+</head>
+<body>
+
+{% block content %}
+<div>
+    <h3>Filter Product</h3>
+    <form method="GET">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="title_contains" placeholder="Title contains...">
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="inputState">Weekday</label>
+                <select name='weekday' class="form-control">
+                <option value="">Wochentag</option>
+                {% for day in weekday %}
+                    <option value="{{ day.0 }}">{{ day.1 }}</option>
+                {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="inputState">City</label>
+                <select name='city' class="form-control">
+                <option value="">Stadt</option>
+                {% for city in city %}
+                    <option value="{{ city.0 }}">{{ city.1 }}</option>
+                {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="inputState">Bezirk</label>
+                <select name='bezirk' class="form-control">
+                <option value="">Bezirk</option>
+                {% for bezirk in bezirk %}
+                  <option value="{{ bezirk.0 }}">{{ bezirk.1 }}</option>
+                {% endfor %}
+                </select>
+            </div>
+
+            </div>
+        </div>
+        <!-- <div class="form-group" style="display: inline"> -->
+
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <hr>
+    <!-- LISTS ALL FILTERED POSTS -->
+    <div>
+    {% for post in queryset %}
+      <div class="angebot">
+          <div class="column1">
+            <img src="{{ post.titelbild }}" width="200px"></p>
+            <small class="text-muted">{{ post.weekday }}</small>
+            <small>,</small>
+            <small class="text-muted">{{ post.bezirk }}</small>
+          </div>
+          <div class="column2">
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <h6 style="margin-top: -20px;">{{ post.author }}</h6>
+            <small class="text-muted">{{ post.beschreibung }}</small>
+          </div>
+      </div>
+    {% endfor %}
+    </div>
+</div>
+<!-- /.container -->
+{% endblock content %}
+    <footer>
+      <a>About</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>Support</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>FAQ</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>About</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+    </footer>
+</body>
+</html>
