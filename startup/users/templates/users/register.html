@@ -2,14 +2,16 @@
 <html>
 <head>
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '/css_users/register.css' %}">
   <title>HTML CSS JS</title>
 </head>
 <body>
   <div class="wrapper">
     <div class="header">
       <div class="logo">
+        <a href="{% url 'index' %}">
         <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        </a>
       </div>
       <div class="navbar-nav">
           {% if user.is_authenticated %}
@@ -41,3 +43,34 @@
             </div>
         </div>
 {% endblock content %}
+
+<footer>
+      <a>About</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>Support</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>FAQ</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+      <a>About</a>
+        <ul class="about">
+            <li>About us</li>
+            <li>Impressum</li>
+            <li>F&Q's</li>
+        </ul>
+    </footer>
+
+  </div>
+</body>
+</html>

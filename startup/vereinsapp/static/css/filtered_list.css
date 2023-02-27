@@ -43,11 +43,6 @@ ul.b {
   padding: 50px 50px 50px 50px;
 }
 
-a {
-  text-decoration: none;
-  color: #059669;
-}
-
 .angebot{
   margin-top: -20px;
   height: 100px;
@@ -118,4 +113,42 @@ footer{
   bottom: 0;
   left:0;
   margin-bottom: 0px;
+}
+
+/* styling für filtered_list.html */
+
+form{
+  height: 5px;
+  background: #c8e6c9;
+  padding: 25px 25px;
+  display: flex;
+
+  margin: 50px 100px 50px 100px;
+  border-radius: 10px;
+  color:white;
+
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+    .form-control {
+        background-color: white;
+    }
+
+
+label{
+ color: #059669;
+ margin-left: 20px;
+ margin-right: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #059669;
 }

@@ -9,7 +9,9 @@
   <div class="wrapper">
     <div class="header">
       <div class="logo">
-        <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        <a href="{% url 'index' %}">
+          <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        </a>
       </div>
       <nav class="class">
         <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden" class="nav-items">
@@ -19,29 +21,29 @@
       </nav>
     </div>
 
-    <div class="hero-container">
+    <div class="row">
       <div class="left">
-        <h3> Wir übernehmen Ihr Vereinsmarkting</h3>
+        <h2 style="margin-bottom: 50px;"> Wir übernehmen Ihr Vereinsmarkting</h2>
           <p>Überlassen Sie das Marketing für Ihr Verein an Experten und konzentrieren Sie sich auf Ihr Kerngeschäft.</p>
           <p>Wir verwalten ihr Marketingbudget und schöpfen das beste aus dem heraus.</p>
         <a href="#" style="margin-top: 130px; display:inline-block; text-decoration: none" class=btn btn-primary >Jetzt eine kostenlose Beratung holen</a>
       </div>
       <div class="right">
-         <img class="img-fluid img-thumbnail" style="width:50%; margin-top: 60px; display: flex;" src="{% static '/images/marketing1.png' %}" alt="">
+         <img class="img-fluid img-thumbnail" style="width:80%; margin-right: 30px; display: flex; float: right;" src="{% static '/images/marketing1.png' %}" alt="">
       </div>
     </div>
 
 
     <h4 style="text-align:center">Wie es funktioniert</h4>
-    <div class="row" style="height: 300px;">
+    <div style="height: 200px; display: flex; align-items: center; margin: 10px 50px 100px 50px;">
       <div class="column" style="background-color:#c8e6c9;">
-        <p style="text-align:center; margin-top: 30%;">Teilnahmequote erhöhen</p>
+        <p style="text-align:center; justify-content: center; align-items: center; padding: 50px;">Teilnahmequote erhöhen</p>
       </div>
       <div class="column" style="background-color:#a5d6a7;">
-        <p style="text-align:center; margin-top: 30%;">Marketingkosten sparen</p>
+        <p style="text-align:center; justify-content: center; align-items: center; padding: 50px;">Marketingkosten sparen</p>
       </div>
       <div class="column" style="background-color:#c8e6c9;">
-        <p style="text-align:center; margin-top: 30%;">Aufwand sparen</p>
+        <p style="text-align:center; justify-content: center; align-items: center; padding: 50px;">Aufwand sparen</p>
       </div>
     </div>
 
@@ -135,7 +137,9 @@
       </div>
     </div>
 
-    <img class="img-fluid img-thumbnail" src="{% static '/images/partner.png' %}" style="width: 50%; ">
+    <div class="row" style="align-items: center;justify-content: center;">
+      <img class="img-fluid img-thumbnail" src="{% static '/images/partner.png' %}" style="width: 50%; ">
+    </div>
 
     <footer>
       <a>About</a>

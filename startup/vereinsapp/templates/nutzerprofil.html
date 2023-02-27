@@ -9,7 +9,9 @@
   <div class="wrapper">
     <div class="header">
       <div class="logo">
+        <a href="{% url 'index' %}">
         <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        </a>
       </div>
       <nav class="class">
         <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden" class="nav-items">
@@ -26,7 +28,7 @@
 
   <div class="row">
     <div class="column">
-      <img class="img-fluid img-thumbnail" src="{% static '/images/profilpicture.png' %}" style="width: 40%" alt="">
+      <img class="img-fluid img-thumbnail" src="{% static '/images/profilpicture.png' %}" style="width: 30%" alt="">
     </div>
     <div class="column">
       <p>Mitglied seit November 2022</p>
@@ -36,14 +38,6 @@
       <a href="#" class=btn btn-primary style="text-decoration: none;">Profildaten ändern</a>
     </div>
   </div>
-
-   <div style="display: flex; margin-left: 50px;">
-       <a href="#" class=btn btn-primary>6</a>
-       <p>Gruppen</p>
-       <a href="#" class=btn btn-primary>4</a>
-       <p>Interessen</p>
-       <a href="#" class=btn btn-primary>Profil bearbeiten</a>
-   </div>
 
 
   <h4>Gespeicherte Veranstaltungen</h4>
@@ -79,12 +73,13 @@
   </div>
 
   <h3>Interessen</h3>
-
-   <a style="background: #059669;" href="#" class=btn btn-primary>Kunst</a>
-   <a href="#" class=btn btn-primary>Kinder</a>
-   <a href="#" class=btn btn-primary>Queer</a>
-   <a href="#" class=btn btn-primary>Türkisch</a>
-   <a href="#" class=btn btn-primary>Bildung</a>
+  <div style="margin: 50px 10px 50px 50px;">
+     <a style="text-decoration: none;" href="#" class=btn btn-primary>Kunst</a>
+     <a style="text-decoration: none;" href="#" class=btn btn-primary>Kinder</a>
+     <a style="text-decoration: none;" href="#" class=btn btn-primary>Queer</a>
+     <a style="text-decoration: none;" href="#" class=btn btn-primary>Türkisch</a>
+     <a style="text-decoration: none;" href="#" class=btn btn-primary>Bildung</a>
+  </div>
 
 
     <footer>

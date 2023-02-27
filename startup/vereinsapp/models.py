@@ -29,7 +29,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     beschreibung = models.CharField(max_length=100, default='')
     date_posted = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=3)
     titelbild = models.ImageField(upload_to='../media/', default='/media/gemeinsam.png') #upload_to=''
 
     category_choices = (

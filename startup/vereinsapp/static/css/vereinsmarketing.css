@@ -28,7 +28,7 @@ background: none;
 ul{
   list-style-type: none;
 }
-h3, h4, h5 {
+h2, h3, h4, h5 {
 color: #107F3A;
 }
 
@@ -50,7 +50,7 @@ ul.b {
 .row {
   display: flex;
   align-items: center;
-  margin: 50px 10px 0px 50px;
+  margin: 50px 50px 150px 50px;
 }
 .column {
   width: 80%;

@@ -3,13 +3,15 @@
 <head>
   {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static '/css/anzeige_new.css' %}">
-  <title>HTML CSS JS</title>
+  <title>Neues Angebot Online stellen</title>
 </head>
 <body>
   <div class="wrapper">
     <div class="header">
       <div class="logo">
+        <a href="{% url 'index' %}">
         <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        </a>
       </div>
       <nav class="class">
         <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden" class="nav-items">
@@ -34,88 +36,6 @@
             </form>
         </div>
   {% endblock %}
-
-  <div class="top">Veranstaltung planen</div>
-
-  <div style="margin: 50px 100px 50px 100px;">
-      <form>
-
-        <div style="display: flex;flex-direction: column;align-items: left;">
-          <h3>Titel</h3>
-          <input type="text" id="fname" name="fname"><br>
-
-          <h3>Beschreibung</h3>
-          <input style="height:150px" type="text" id="lname" name="lname">
-
-        </div>
-        <h3>Deine Zielgruppe</h3>
-
-        <input type="text" id="alter" name="lname" value="Alter">
-        <input type="text" id="sex" name="lname" value="Geschlecht">
-        <input type="text" id="umkreis" name="lname" value="Umkreis">
-
-        <h3>Interessen</h3>
-
-        <input type="text" id="kunst" name="lname" value="Kunst">
-        <input type="text" id="bildung" name="lname" value="Bildung">
-        <input type="text" id="kultur" name="lname" value="Kultur">
-        <input type="text" id="musik" name="lname" value="Musik">
-        <input type="text" id="umwelt" name="lname" value="Umwelt">
-        <input type="text" id="zusammenkommen" name="lname" value="Zusammenkommen">
-        <input type="text" id="kiez" name="lname" value="Kiezgestaltung">
-        <input type="text" id="tanzen" name="lname" value="Tanzen">
-        <input type="text" id="essen" name="lname" value="Essen">
-
-        <h3>Besonderheiten</h3>
-        <input type="text" id="fluechtling" name="lname" value="Flüchtling">
-        <input type="text" id="migranten" name="lname" value="Migranten">
-        <input type="text" id="behinderungK" name="lname" value="Körperliche Behinderung">
-        <input type="text" id="behinderungG" name="lname" value="Geistige Behinderung">
-        <input type="text" id="queer" name="lname" value="Queer">
-
-        <h3>Interessen oder Besonderheiten die nicht aufgelistet sind:</h3>
-        <input type="text" id="sonstiges" name="lname">
-
-        <h3>An welchem Wochentag findet das Angebot statt</h3>
-          <select id="wochentag" name="wochentag">
-            <option value="Montag">Montag</option>
-            <option value="Dienstag">Dienstag</option>
-            <option value="Mittwoch">Mittwoch</option>
-            <option value="Donnerstag">Donnerstag</option>
-            <option value="Freitag">Freitag</option>
-            <option value="Samstag">Samstag</option>
-            <option value="Sonntag">Sonntag</option>
-          </select>
-
-        <h3>Wo findet es statt?</h3>
-        <select class="select" multiple>
-            <option value="Mitte">Mitte</option>
-            <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
-            <option value="Pankow">Pankow</option>
-            <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
-            <option value="Spandau">Spandau</option>
-            <option value="Steglitz-Zehlendorf">Steglitz-Zehlendorf</option>
-            <option value="Tempelhof-Schöneberg">Tempelhof-Schöneberg</option>
-            <option value="Neukölln">Neukölln</option>
-            <option value="Treptow-Köpenick">Treptow-Köpenick</option>
-            <option value="Marzahn-Hellersdorf">Marzahn-Hellersdorf</option>
-            <option value="Lichtenberg">Lichtenberg</option>
-            <option value="Reinickendorf">Reinickendorf</option>
-          </select>
-
-        <h3>Bilder hochladen</h3>
-        <input type="file" id="myFile" name="filename">
-        <input type="submit">
-
-        <label>Mitgliederbeschränkung</label><br>
-        <input type="text" id="mitgliedermax" name="lname" value="uneingeschränkt">
-
-        <br><br>
-
-        <button class="btn btn-outline-info" style="background: #F57979;" type="submit">Anzeige veröffentlichen</button>
-
-      </form>
-  </div>
 
 
     <footer>

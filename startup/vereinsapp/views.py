@@ -122,6 +122,8 @@ class PostDetailView(DetailView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
+    #template_name = 'post_detail.html'
+    template_name = 'post_update.html'
     fields = ['title', 'beschreibung', 'category', 'bezirk', 'city', 'weekday', 'titelbild']
 
     def form_valid(self, form):
@@ -137,6 +139,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
+    template_name = 'post_confirm_delete.html'
     success_url = '/'
 
     def test_func(self):  # prevent that a user can update other users posts

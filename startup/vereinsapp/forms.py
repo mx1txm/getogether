@@ -1,5 +1,5 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Div, Field
+from crispy_forms.layout import Layout, Submit, Div, Field, Fieldset, Row, Column
 from django import forms
 from .models import Post
 import django_filters
@@ -22,21 +22,36 @@ class PostForm(forms.ModelForm):
         # If you pass FormHelper constructor a form instance
         # It builds a default layout with all its fields
         self.helper = FormHelper(self)
+
         # You can dynamically adjust your layout
         self.helper.layout = Layout(
-            Div(
-                Div('title', css_class='col-6'),
-                Div('beschreibung', css_class='col-6'),
+            Fieldset(
+                'Anzeige Details',
+                Div(
+                    Div('title', css_class='col-md-6 mb-0'),
+                    Div('beschreibung', css_class='col-md-6 mb-0'),
+                    css_class='row'
+                ),
+                Div(
+                    Div('category', css_class='col-md-6 mb-0'),
+                    Div('image', css_class='col-md-6 mb-0'),
+                    css_class='row'
+                ),
             ),
-            Div(
-                Div('city', css_class='col-6'),
-                Div('bezirk', css_class='col-6'),
-                Div('category', css_class='col-6'),
-                Div('weekday', css_class='col-6'),
+            Fieldset(
+                'Anzeige Ort und Zeit',
+                Div(
+                    Div('city', css_class='col-md-4 mb-0'),
+                    Div('bezirk', css_class='col-md-4 mb-0'),
+                    Div('weekday', css_class='col-md-4 mb-0'),
+                    css_class='row'
+                ),
             ),
-            Submit('submit', 'Submit', css_class='btn btn-primary')
+            Submit('save', 'save')
         )
-        #self.helper.layout.append(Submit('save', 'save'))
+        self.helper.layout.append(Submit('save', 'save'))
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({'class': 'form-control'})
 
     class Meta:
         model = Post

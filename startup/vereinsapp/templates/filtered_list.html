@@ -2,15 +2,30 @@
 <html>
 <head>
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static '/css/angebote.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '/css/filtered_list.css' %}">
   <title>HTML CSS JS</title>
 </head>
 <body>
 
+<div class="wrapper">
+    <div class="header">
+      <div class="logo">
+        <a href="{% url 'index' %}">
+        <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        </a>
+      </div>
+      <nav class="class">
+        <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden" class="nav-items">
+          <li style="float: left;"><a style="display: block;padding: 8px;" href="#">Sprache</a></li>
+          <li style="float: left;"><a style="display: block;padding: 8px;" href="#">Login</a></li>
+        </ul>
+      </nav>
+</div>
+
 {% block content %}
 <div>
-    <h3>Filter Product</h3>
     <form method="GET">
+        <h3 style="color: #059669; margin-right: 20px;">Filter Product</h3>
         <div class="form-row">
             <div class="form-group col-md-12">
                 <div class="input-group">
@@ -58,7 +73,7 @@
         </div>
         <!-- <div class="form-group" style="display: inline"> -->
 
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button style="margin-left: 60px" type="submit" class="btn btn-primary">Search</button>
     </form>
     <hr>
     <!-- LISTS ALL FILTERED POSTS -->

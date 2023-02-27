@@ -1,20 +1,15 @@
-/* CSS styles */
-
-body {
-font-family: "Manrope" , sans-serif;
-background: none;
-}
-.wrapper {
-  max-width:1600px;
-  margin: 0 auto;
-
-}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #059669;
 }
+
+body {
+  font-family: "Manrope" , sans-serif;
+  background: none;
+}
+
 .nav-items{
   display: flex;
 }
@@ -22,67 +17,18 @@ background: none;
 .nav-items li a{
   margin: 0 20;
   color: #DCF0DB;
-}
-
-a, ul{
   text-decoration: none;
 }
 
-.eckdaten {
-  color: blue;
-  display: flex;
-  flex-direction: row;
+.nav-item nav-link{
+  justify-content: center;
   align-items: center;
-}
-
-.top{
-  height: 5px;
-  background: #c8e6c9;
-  padding: 25px 25px;
-  display: flex;
-  margin: 50px 100px 50px 100px;
-  border-radius: 10px;
-  color:white;
-  box-sizing: border-box;
-  flex-direction: row;
-  align-items: center;
-}
-
-
-h3, h4, h5 {
-color: #107F3A;
-}
-
-h4{
-  margin-top: 100px;
-  padding: 0px 50px;
-}
-
-.suche{
-  display: flex;
-  margin-top: 50px;
-  padding: 0px 50px;
-  justify-content: space-between;
-  align-items: center;
- }
-
-.kategorie{
-  display: flex;
-  padding: 0px 50px;
-  flex-direction: column;
- }
-
-.days{
-    display: flex;
-}
-
-.days .btn{
-    margin-right: 10px;
-    margin-top: 30px;
-}
-
-img {
-  width: 300px;
+  background: #059669;
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 8px 20px;
+  color: white;
+  text-decoration: none;
 }
 
 .btn{
@@ -93,17 +39,7 @@ img {
   font-size: 12px;
   padding: 8px 20px;
   color: white;
-}
-
-.row {
-  box-sizing: border-box;
-  padding: 0px 50px;
-  text-align:center;
-}
-
-ul.b {
-  list-style-type: square;
-  padding: 50px 50px 50px 50px;
+  text-decoration: none;
 }
 
 footer{
@@ -113,6 +49,64 @@ footer{
   background: #059669;
   padding: 30px;
   color: white;
+  bottom: 0;
+  left:0;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #059669;
+}
+
+body {
+  font-family: "Manrope" , sans-serif;
+  background: none;
+}
+
+.nav-items{
+  display: flex;
+}
+
+.nav-items li a{
+  margin: 0 20;
+  color: #DCF0DB;
+  text-decoration: none;
+}
+
+.nav-item nav-link{
+  justify-content: center;
+  align-items: center;
+  background: #059669;
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 8px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.btn{
+  justify-content: center;
+  align-items: center;
+  background: #059669;
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 8px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #059669;
+  padding: 30px;
+  color: white;
+    /*makes the footer fixed to the bottom*/
+  position: fixed;
   bottom: 0;
   left:0;
   width: 100%;

@@ -2,7 +2,7 @@
 <html>
 <head>
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static '/css/base.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '/css_users/logout.css' %}">
   <title>HTML CSS JS</title>
 </head>
 
@@ -10,7 +10,9 @@
   <div class="wrapper">
     <div class="header">
       <div class="logo">
+        <a href="{% url 'index' %}">
         <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        </a>
       </div>
       <div class="navbar-nav">
           {% if user.is_authenticated %}

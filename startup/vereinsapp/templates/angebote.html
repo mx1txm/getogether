@@ -3,13 +3,15 @@
 <head>
   {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static '/css/angebote.css' %}">
-  <title>HTML CSS JS</title>
+  <title>Angebote</title>
 </head>
 <body>
   <div class="wrapper">
     <div class="header">
       <div class="logo">
+        <a href="{% url 'index' %}">
         <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        </a>
       </div>
       <nav class="class">
         <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden" class="nav-items">
@@ -18,109 +20,6 @@
         </ul>
       </nav>
     </div>
-
-   <h3>Filtern</h3>
-    <form method="GET">
-        {% csrf_token %}
-        {{ ListingFilter.form }}
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <div class="input-group">
-                    <input class="form-control py-2 border-right-0 border" type="search" name="title_contains" placeholder="Title contains..." value="{{ request.GET.title_contains }}">
-                    <span class="input-group-append">
-                        <div class="input-group-text bg-transparent">
-                            <i class="fa fa-search"></i>
-                        </div>
-                    </span>
-                </div>
-            </div>
-            <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputCity">Stadt</label>
-                <select id="inputCity" name="city" class="form-control">
-                    <option selected>Choose...</option>
-                    <option value="0">{{ Posts.weekday }}</option>
-                    <option value="1">Bielefeld</option>
-                    <option value="2">Nuts</option>
-                    <option value="3">legumes</option>
-                </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputState">Kategorie</label>
-                <select id="inputState" name="category" class="form-control">
-                    <option selected>Choose...</option>
-                    <option value="0">Kunst</option>
-                    <option value="1">Vegetables</option>
-                    <option value="2">Nuts</option>
-                    <option value="3">legumes</option>
-                </select>
-            </div>
-            </div>
-        </div>
-
-        <!-- <div class="form-group" style="display: inline"> -->
-        <div class="form-row">
-
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <div>
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Barrierefrei
-                </label>
-                </div>
-                <div>
-                <input class="form-check-input" type="checkbox" id="gridCheck2">
-                <label class="form-check-label" for="gridCheck">
-                    Körperlich eingeschränkt
-                </label>
-                </div>
-                <div>
-                <input class="form-check-input" type="checkbox" id="gridCheck3">
-                <label class="form-check-label" for="gridCheck">
-                    LGBT
-                </label>
-                </div>
-            </div>
-        </div>
-        <button type="submit" value="Filter" class="btn btn-primary">Search</button>
-    <p>{{ listing_filter }}</p>
-    {% for post in filtered.qs %}
-        <h1>{{ post.post }}</h1>
-    {% endfor %}
-    </form>
-
-
-    <form method="get">
-      {{ FilterForm.form }}
-      <input type="submit" value="Filter">
-    </form>
-
-    {% for listing in listing_filter.qs %}
-    <h1>{{ listing }}</h1>
-    {% endfor %}
-
-    <form method="get">
-      {% csrf_token %}
-      {{ ListingFilter.form }}
-      <input type="submit" value="Filter">
-      {% for post in filtered.qs %}
-        <h1>{{ post.post }}</h1>
-      {% endfor %}
-    </form>
-
-
-    <form method="get">
-        {% csrf_token %}
-        {{ myFilter.form }}
-        <button type="submit" name="button">Submit</button>
-    </form>
-    <h2>{{ text }}</h2>
-    {% for post in myFilter.qs %}
-    <h1>{{ post.post }}</h1>
-    {% endfor %}
-
 
     {% block content %}
     {% for post in posts %}

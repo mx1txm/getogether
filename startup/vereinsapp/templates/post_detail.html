@@ -9,7 +9,9 @@
   <div class="wrapper">
     <div class="header">
       <div class="logo">
-        <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        <a href="{% url 'index' %}">
+            <img src="{% static '../media/logo-start-up2.png' %}" alt="logo" style="width:70px;height:60px; padding:10px;">
+        </a>
       </div>
       <nav class="class">
         <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden" class="nav-items">
@@ -20,59 +22,44 @@
     </div>
     {% block content %}
 
-    <div class="container-fluid">
-       <div class="roww" style="background-color:#aaa; width:100%; margin-bottom:10px;">
-           <h2 class="article-title">Veranstaltung</h2>
-           <h2 class="article-title">{{ object.title }}</h2>
+    <div class="container-fluid" style="margin-bottom: 100px">
+
+       <div style="display: flex; align-items: center;">
+           <h2 style="margin: 20px; margin-top: 40px; margin-bottom: 40px; text-decoration: underline; text-decoration-color: #c8e6c9; text-decoration-thickness: 5px;">Veranstaltung</h2>
+           <h2>{{ object.title }}</h2>
        </div>
 
-       <div class="roww">
-          <div class="column" style="background-color:#aaa;">
-              <img style="width: 90%; margin-left:30px; margin-top:20px;" src="{{ object.titelbild }}">
-              <p class="article-content">{{ object.weekday }}, {{ object.city }} ({{ object.bezirk }})</p>
+       <div class="row">
+          <div class="column">
+              <img style="width: 100%;" src="{{ object.titelbild }}">
+              <p style="float: left;" class="article-content">{{ object.weekday }}, {{ object.city }} ({{ object.bezirk }})</p>
           </div>
-          <div class="column" style="background-color:#bbb;margin-left:20%;margin-top:100px;">
+
+          <div class="column">
+              <h3>Beschreibung</h3>
               <p class="article-content">{{ object.beschreibung }}</p>
-              {% if object.author == user %}
+          </div>
+
+          <div class="column" style="float:left;">
+              <h3>Träger:</h3>
+              <p>{{ object.author }}, {{ user }}</p>
+              <p>Adresse</p>
+              <p>Postleitzahl und {{ object.city }}</p>
+              <p>Telefonnummer</p>
+              <p>Email</p>
+          </div>
+
+           <div>
+           {% if object.author == user %}
               <div>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
                 <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
               </div>
-              {% endif %}
-              {% endblock content %}
-          </div>
-          </div>
+           {% endif %}
+           {% endblock content %}
+           </div>
        </div>
     </div>
-
-
-
-
-
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-6">
-            <div class="row" style="background-color:#aaa;">
-                <div class="col-12">
-                    <!-- Content for first row in left column -->
-                </div>
-            </div>
-            <div class="row" style="background-color:#bbb;">
-                <div class="col-12">
-                    <!-- Content for second row in left column -->
-                </div>
-            </div>
-            <div class="row" style="background-color:#aaa;">
-                <div class="col-12">
-                    <!-- Content for third row in left column -->
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <!-- Content for right column -->
-        </div>
-    </div>
-  </div>
 
     <footer>
       <a>About</a>
