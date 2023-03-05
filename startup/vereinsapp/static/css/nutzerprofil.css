@@ -3,29 +3,35 @@
 body {
 font-family: "Manrope" , sans-serif;
 background: none;
-
 margin-bottom:50px; /*für footer*/
 }
-.wrapper {
 
+.wrapper {
   max-width:1600px;
   margin: 0 auto;
-
 }
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #059669;
 }
+
+.navbar-nav .nav-item.nav-link {
+  text-decoration: none;
+  color: #c8e6c9;
+  margin-right: 30px;
+}
+
 .nav-items{
   display: flex;
-  text-decoration: none;
 }
 
 .nav-items li a{
   margin: 0 20;
   color: #DCF0DB;
+  text-decoration: none;
 }
 
 h3, h4, h5 {
@@ -74,7 +80,6 @@ ul.b {
   align-items: center;
   color: #059669;
 }
-
 
 footer{
   display: flex;

@@ -14,7 +14,7 @@
       <div class="navbar-nav">
           {% if user.is_authenticated %}
                 <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
-                <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                <a class="nav-item nav-link" href="{% url 'Nprofile' %}">Profile</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
               {% else %}
                 <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
@@ -90,7 +90,7 @@
             <h5>Veranstaltung teilnehmen</h5>
           </div>
         </div>
-        <div style="justify-content: center; align-items: center; display: flex; margin-top: 20px;"><a href="#" class=btn btn-primary>Jetzt registrieren</a></div>
+        <div style="justify-content: center; align-items: center; display: flex; margin-top: 20px;"><a href="{% url 'register' %}" class=btn btn-primary>Jetzt registrieren</a></div>
     </div>
 
 
@@ -158,31 +158,11 @@
   </div>
 
     <footer>
-  <div>
-    <a>About</a>
-    <ul>
-      <li>About us</li>
-    </ul>
-  </div>
-  <div>
-    <a>Support</a>
-    <ul>
-      <li>Support</li>
-    </ul>
-  </div>
-  <div>
-    <a>FAQ</a>
-    <ul>
-      <li>F&Q's</li>
-    </ul>
-  </div>
-  <div>
-    <a>Impressum</a>
-    <ul>
-      <li>Impressum</li>
-    </ul>
-  </div>
-</footer>
+      <a>About</a>
+      <a>FAQ</a>
+      <a>Terms & Conditions</a>
+      <a>Privacy Policy</a>
+    </footer>
 
   </div>
 </body>

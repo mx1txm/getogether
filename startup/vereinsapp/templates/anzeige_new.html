@@ -15,8 +15,8 @@
       </div>
       <nav class="class">
         <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden" class="nav-items">
-          <li style="float: left;"><a style="display: block;padding: 8px;" href="#">Sprache </a></li>
-          <li style="float: left;"><a style="display: block;padding: 8px;" href="#">Login</a></li>
+          <li style="float: left;"><a style="display: block;padding: 8px;" href="{% url 'filter' %}">Angebote</a></li>
+          <li style="float: left;"><a style="display: block;padding: 8px;" href="{% url 'login' %}">Login</a></li>
         </ul>
       </nav>
     </div>
@@ -37,32 +37,11 @@
         </div>
   {% endblock %}
 
-
     <footer>
       <a>About</a>
-        <ul class="about">
-            <li>About us</li>
-            <li>Impressum</li>
-            <li>F&Q's</li>
-        </ul>
-      <a>Support</a>
-        <ul class="about">
-            <li>About us</li>
-            <li>Impressum</li>
-            <li>F&Q's</li>
-        </ul>
       <a>FAQ</a>
-        <ul class="about">
-            <li>About us</li>
-            <li>Impressum</li>
-            <li>F&Q's</li>
-        </ul>
-      <a>About</a>
-        <ul class="about">
-            <li>About us</li>
-            <li>Impressum</li>
-            <li>F&Q's</li>
-        </ul>
+      <a>Terms & Conditions</a>
+      <a>Privacy Policy</a>
     </footer>
 
   </div>

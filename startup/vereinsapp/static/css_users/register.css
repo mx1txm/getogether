@@ -10,6 +10,19 @@ body {
   background: none;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #059669;
+}
+
+.navbar-nav .nav-item.nav-link {
+  text-decoration: none;
+  color: #c8e6c9;
+  margin-right: 30px;
+}
+
 .nav-items{
   display: flex;
 }
@@ -17,17 +30,6 @@ body {
 .nav-items li a{
   margin: 0 20;
   color: #DCF0DB;
-  text-decoration: none;
-}
-
-.nav-item nav-link{
-  justify-content: center;
-  align-items: center;
-  background: #059669;
-  border-radius: 15px;
-  font-size: 12px;
-  padding: 8px 20px;
-  color: white;
   text-decoration: none;
 }
 
@@ -54,38 +56,6 @@ footer{
   width: 100%;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #059669;
-}
-
-body {
-  font-family: "Manrope" , sans-serif;
-  background: none;
-}
-
-.nav-items{
-  display: flex;
-}
-
-.nav-items li a{
-  margin: 0 20;
-  color: #DCF0DB;
-  text-decoration: none;
-}
-
-.nav-item nav-link{
-  justify-content: center;
-  align-items: center;
-  background: #059669;
-  border-radius: 15px;
-  font-size: 12px;
-  padding: 8px 20px;
-  color: white;
-  text-decoration: none;
-}
 
 .btn{
   justify-content: center;
@@ -106,7 +76,6 @@ footer{
   padding: 30px;
   color: white;
     /*makes the footer fixed to the bottom*/
-  position: fixed;
   bottom: 0;
   left:0;
   width: 100%;

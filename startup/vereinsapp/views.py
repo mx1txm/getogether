@@ -56,8 +56,8 @@ def filter_list(request):#BootstrapFilterView(request)
         qs = qs.filter(bezirk__iexact=bezirk_query)
 
     #weekday
-    if is_valid_queryparam(bezirk_query) and bezirk_query != 'Choose...':
-        qs = qs.filter(bezirk__iexact=bezirk_query)
+    if is_valid_queryparam(weekday_query) and weekday_query != 'Choose...':
+        qs = qs.filter(weekday__iexact=weekday_query)
 
     context = {
         'queryset': qs,

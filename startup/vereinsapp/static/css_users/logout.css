@@ -1,57 +1,6 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #059669;
-}
-
 body {
   font-family: "Manrope" , sans-serif;
   background: none;
-}
-
-.nav-items{
-  display: flex;
-}
-
-.nav-items li a{
-  margin: 0 20;
-  color: #DCF0DB;
-  text-decoration: none;
-}
-
-.nav-item nav-link{
-  justify-content: center;
-  align-items: center;
-  background: #059669;
-  border-radius: 15px;
-  font-size: 12px;
-  padding: 8px 20px;
-  color: white;
-  text-decoration: none;
-}
-
-.btn{
-  justify-content: center;
-  align-items: center;
-  background: #059669;
-  border-radius: 15px;
-  font-size: 12px;
-  padding: 8px 20px;
-  color: white;
-  text-decoration: none;
-}
-
-footer{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #059669;
-  padding: 30px;
-  color: white;
-  bottom: 0;
-  left:0;
-  width: 100%;
 }
 
 .header {
@@ -61,9 +10,10 @@ footer{
   background: #059669;
 }
 
-body {
-  font-family: "Manrope" , sans-serif;
-  background: none;
+.navbar-nav .nav-item.nav-link {
+  text-decoration: none;
+  color: #c8e6c9;
+  margin-right: 30px;
 }
 
 .nav-items{
@@ -73,28 +23,6 @@ body {
 .nav-items li a{
   margin: 0 20;
   color: #DCF0DB;
-  text-decoration: none;
-}
-
-.nav-item nav-link{
-  justify-content: center;
-  align-items: center;
-  background: #059669;
-  border-radius: 15px;
-  font-size: 12px;
-  padding: 8px 20px;
-  color: white;
-  text-decoration: none;
-}
-
-.btn{
-  justify-content: center;
-  align-items: center;
-  background: #059669;
-  border-radius: 15px;
-  font-size: 12px;
-  padding: 8px 20px;
-  color: white;
   text-decoration: none;
 }
 
@@ -106,63 +34,10 @@ footer{
   padding: 30px;
   color: white;
     /*makes the footer fixed to the bottom*/
+  position: fixed;
   bottom: 0;
   left:0;
   width: 95%;
 }
 
-/*Form*/
-    form {
-        background-color: #f9f9f9;
-    }
-    .form-style {
-        padding: 20px;
-        border-radius: 10px;
-    }
-    .btn-outline-info {
-        border-radius: 10px;
-        margin-top: 20px;
-    }
-    legend {
-        font-size: 1.5em;
-        margin-bottom: 20px;
-        color: #107F3A;
-    }
-    .form-group {
-        margin-bottom: 20px;
-        border: none;
 
-
-    }
-
-.row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-
-/*new try*/
-.content-section {
-    display: flex; flex-direction: column; align-items: left; margin: 50px 100px 50px 100px;
-}
-
-label {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: block;
-  color: black;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  font-size: 16px;
-  color: black;
-}
